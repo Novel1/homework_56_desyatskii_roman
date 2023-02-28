@@ -1,0 +1,6 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="post">
+        {% include 'partial/product_form.html' with button_text='Редактировать' %}
+    </form>
+{% endblock %}

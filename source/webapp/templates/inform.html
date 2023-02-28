@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block menu %}
+    <a href="{% url 'update_view' product.pk %}">
+        <button type="button" class="btn btn-warning" style="margin-left: 10px">Редактировать</button>
+    </a>
+    <a href="{% url 'delete_view' product.pk %}">
+        <button type="button" class="btn btn-warning" style="margin-left: 10px">Удалить</button>
+    </a>
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="card " style="width: 18rem; margin: 20px">
+            <img src="{{ product.image }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text">{{ product.description }}</p>
+                <p class="card-text">{{ product.price }}</p>
+                <p class="card-text">{{ product.remainder }}</p>
+                <p class="card-text">{{ product.category }}</p>
+                <a href="{% url 'index' %}"><button type="button" class="btn btn-primary" style="width: 260px">
+                    Вернуться</button></a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
