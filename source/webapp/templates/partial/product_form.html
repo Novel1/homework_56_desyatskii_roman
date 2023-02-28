@@ -1,0 +1,37 @@
+{% csrf_token %}
+<div class="container">
+    <h1>Add Product</h1>
+        <div class="mb-3">
+            <label for="name" class="form-label">Название</label>
+            <input type="text" required name="name" class="form-control" id="name" value="{{ product.name }}">
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Цена</label>
+            <input type="number" required name="price" class="form-control" id="price" value="{{ product.price }}">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Картинка</label>
+            <input type="text" required name="image" class="form-control" id="image" value="{{ product.image }}">
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Категория</label>
+            <select class="form-select" required aria-label="Пример выбора по умолчанию" name="category">
+                {% for choice in choices %}
+                    <option value="{{ choice.1 }}">{{ choice.1 }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="remainder" class="form-label">Остаток</label>
+            <input type="number" required name="remainder" class="form-control" id="remainder" value="{{ product.remainder }}">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Описание</label>
+            <textarea class="form-control" required name="description" id="description"
+                      rows="3">{{ product.description }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">{{ button_text }}</button>
+        <a href="{% url 'index' %}">
+            <button type="button" class="btn btn-primary">Вернуться</button>
+        </a>
+</div>
